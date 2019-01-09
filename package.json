@@ -1,0 +1,36 @@
+{
+  "name": "callbag-redux",
+  "version": "0.0.0",
+  "description": "A reimplementation of redux using callbag",
+  "main": "./build/index.js",
+  "keywords": [
+    "callbag",
+    "reactive programming",
+    "redux",
+    "functional programming"
+  ],
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ENvironmentSet/reactive-components.git"
+  },
+  "author": "ENvironmentSet <herryseo1@gmail.com> (https://github.com/ENvironmentSet)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ENvironmentSet/reactive-components/issues"
+  },
+  "homepage": "https://github.com/ENvironmentSet/reactive-components#readme",
+  "dependencies": {
+    "flux-standard-action": "^2.0.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-loader": "^8.0.5",
+    "webpack": "^4.28.1",
+    "webpack-cli": "^3.2.1"
+  }
+}
