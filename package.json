@@ -1,6 +1,6 @@
 {
   "name": "callbag-redux",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A reimplementation of redux using callbag",
   "main": "./build/index.js",
   "keywords": [
