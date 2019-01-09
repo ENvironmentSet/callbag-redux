@@ -4,7 +4,7 @@ callbag-redux is reimplementation of redux using callbag
 
 ## API
 
-### createStore(reducer, [preloadedState])
+### store(reducer, [preloadedState])
 
 ----
 
