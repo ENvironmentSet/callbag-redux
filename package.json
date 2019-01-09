@@ -1,6 +1,6 @@
 {
   "name": "callbag-redux",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A reimplementation of redux using callbag",
   "main": "./build/index.js",
   "keywords": [
@@ -30,6 +30,7 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "babel-loader": "^8.0.5",
+    "cross-env": "^5.2.0",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.2.1"
   }
