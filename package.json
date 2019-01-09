@@ -10,7 +10,11 @@
     "functional programming"
   ],
   "scripts": {
-    "build": "webpack"
+    "env:development": "cross-env NODE_ENV=development",
+    "env:production": "cross-env NODE_ENV=production",
+    "build": "webpack",
+    "build:development": "npm run env:development -- npm run build",
+    "build:production": "npm run env:production -- npm run build"
   },
   "repository": {
     "type": "git",
