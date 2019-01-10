@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ENvironmentSet/reactive-components.git"
+    "url": "git+https://github.com/ENvironmentSet/callbag-redux.git"
   },
   "author": "ENvironmentSet <herryseo1@gmail.com> (https://github.com/ENvironmentSet)",
   "license": "MIT",
