@@ -1,4 +1,4 @@
-import { enhance } from '^';
+import enhance from './enhance';
 
 export const store = enhance();
 
