@@ -2,7 +2,9 @@
   "name": "callbag-redux",
   "version": "0.2.1",
   "description": "A reimplementation of redux using callbag",
-  "main": "./build/index.js",
+  "main": "build/lib/callbag-redux.js",
+  "unpkg": "build/dist/callbag-redux.js",
+  "module": "build/es/callbag-redux.js",
   "keywords": [
     "callbag",
     "reactive programming",
@@ -12,9 +14,11 @@
   "scripts": {
     "env:development": "cross-env NODE_ENV=development",
     "env:production": "cross-env NODE_ENV=production",
-    "build": "webpack",
+    "build": "rollup -c",
     "build:development": "npm run env:development -- npm run build",
-    "build:production": "npm run env:production -- npm run build"
+    "build:production": "npm run env:production -- npm run build",
+    "clear": "rimraf build",
+    "release": "npm run clear -- npm run build:production"
   },
   "repository": {
     "type": "git",
@@ -32,8 +36,8 @@
     "@babel/preset-env": "^7.2.3",
     "babel-loader": "^8.0.5",
     "cross-env": "^5.2.0",
-    "webpack": "^4.28.1",
-    "webpack-cli": "^3.2.1"
-  },
-  "dependencies": {}
+    "rimraf": "^2.6.3",
+    "rollup": "^1.1.0",
+    "rollup-plugin-babel": "^4.3.0"
+  }
 }
