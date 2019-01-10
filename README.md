@@ -196,4 +196,76 @@ dispatch(myStore)(map(() => ({ type: 'INCREASE' }))(interval(1000)));
 dispatch(myStore)(map(() => ({ type: 'SET', payload: `It's ${Date.now()}` }))(interval(2000)));
 ```
 
+### enhance(action$)(reducer, [preloadedState])
+
+| Argument | Description |
+|----------|-------------|
+| action$  | pullable that takes action as input and dispatches action |
+
+takes an stream that takes action as input and produces action as output.
+and apply given stream onto store. so you can control every actions that has been dispatched. 
+
+```js
+import { enhance, subscribe, dispatch, combineReducers } from '^';
+
+const logger = (start, producer) => {
+  if (start !== 0) return;
+
+  producer(0, (t, d) => {
+    if(t === 1) {
+      console.log(d);
+      producer(1, d);
+    }
+  })
+};
+
+function counterReducer(count = 0, action) {
+  switch (action.type) {
+    case 'INCREASE':
+      return count + 1;
+    case 'DECREASE':
+      return count - 1;
+    default :
+      return count;
+  }
+}
+
+function memoReducer(memo = '', action) {
+  switch (action.type) {
+    case 'SET':
+      return action.payload;
+    default :
+      return memo;
+  }
+}
+
+const reducer = combineReducers({
+  count: counterReducer,
+  memo: memoReducer,
+});
+const myStore = enhance(logger)(reducer);
+
+subscribe(myStore)(({ count }) => console.log(`count: ${count}`));
+subscribe(myStore)(({ memo }) => console.log(`memo: ${memo}`));
+
+const interval = time => (start, sink) => {
+  if (start !== 0) return;
+
+  setInterval(() => {
+    sink(1);
+  }, time)
+};
+
+const map = transformer => a$ => (start, sink) => {
+  if (start !== 0) return;
+
+  a$(0, (t, d) => {
+    sink(t, t === 1 ? transformer(d) : d);
+  });
+};
+
+dispatch(myStore)(map(() => ({ type: 'INCREASE' }))(interval(1000)));
+dispatch(myStore)(map(() => ({ type: 'SET', payload: `It's ${Date.now()}` }))(interval(2000)));
+```
+
 ----
