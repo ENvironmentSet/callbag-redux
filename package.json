@@ -18,7 +18,8 @@
     "build:development": "npm run env:development -- npm run build",
     "build:production": "npm run env:production -- npm run build",
     "clear": "rimraf build",
-    "release": "npm run clear -- npm run build:production"
+    "release": "npm run clear -- npm run build:production",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
