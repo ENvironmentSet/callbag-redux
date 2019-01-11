@@ -14,12 +14,13 @@
   "scripts": {
     "env:development": "cross-env NODE_ENV=development",
     "env:production": "cross-env NODE_ENV=production",
+    "env:test": "cross-env NODE_ENV=test",
     "build": "rollup -c",
     "build:development": "npm run env:development -- npm run build",
     "build:production": "npm run env:production -- npm run build",
     "clear": "rimraf build",
     "release": "npm run clear -- npm run build:production",
-    "test": "jest"
+    "test": "npm run env:test -- jest"
   },
   "repository": {
     "type": "git",
